@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         OneeChan-4chanXT-Icon-inserter
+// @name         OneeChan 4chanXT SVG Icon Inserter
 // @namespace    http://tampermonkey.net/
 // @version      2024-07-01
 // @description  try to take over the world!
@@ -28,17 +28,32 @@
         OneeChan_link.firstChild.style.overflow = "visible"; //to allow overflowing the icon boundary
     }
 
-    function after_4chanX_finished() {
-        //The 4chanX(T) header should be available now, however, Oneechan takes a little while to add its own settings link
+    function has_OneeChan_appended_settings_button()
+    {
+        return document.querySelector("#OneeChanLink") !== null;
+    }
 
+    function after_4chanX_finished() {
+        //The 4chanX(T) header should be available now, however, Oneechan takes a little while to add its own settings button
         const shortcuts = document.querySelector("#shortcuts");
 
-        const observer = new MutationObserver(() => {
+        //If the OneeChan settings button exists now, replace it
+        if (has_OneeChan_appended_settings_button()) 
+        {
             replace_Oneechan_link_with_inline_svg_icon();
-            observer.disconnect();
-        });
-
-        observer.observe(shortcuts, { childList: true }); //will call the callback every time a child of #shortcuts is appended or removed (in our case, appended)
+        }
+        else //If not, wait for OneeChan to add its settings button
+        {
+            const observer = new MutationObserver((e) => {
+                if (has_OneeChan_appended_settings_button()) //check if the mutation made to the "#shortcuts" children is OneeChan appending the button or not
+                {
+                    replace_Oneechan_link_with_inline_svg_icon();
+                    observer.disconnect();
+                }
+            });
+    
+            observer.observe(shortcuts, { childList: true }); //will call the callback every time a child of #shortcuts is appended or removed (in our case, appended)
+        }
     }
 
     //4chanX(T) provides an event for userscripts to use when it's finished initializing: https://github.com/ccd0/4chan-x/wiki/4chan-X-API
