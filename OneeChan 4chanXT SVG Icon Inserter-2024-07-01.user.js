@@ -13,7 +13,8 @@
 (function() {
     'use strict';
 
-    function replace_Oneechan_link_with_inline_svg_icon() {
+    function replace_Oneechan_link_with_inline_svg_icon() 
+    {
         const OneeChan_link = document.querySelector("#OneeChanLink");
 
         //replace classes fa fa-icon with settings-link
@@ -33,7 +34,8 @@
         return document.querySelector("#OneeChanLink") !== null;
     }
 
-    function after_4chanX_finished() {
+    function after_4chanX_finished() 
+    {
         //The 4chanX(T) header should be available now, however, Oneechan takes a little while to add its own settings button
         const shortcuts = document.querySelector("#shortcuts");
 
