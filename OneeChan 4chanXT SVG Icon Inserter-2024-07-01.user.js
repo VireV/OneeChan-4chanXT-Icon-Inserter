@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         OneeChan 4chanXT SVG Icon Inserter
+// @name         OneeChan-4chanXT-Icon-Inserter
 // @namespace    http://tampermonkey.net/
 // @version      2024-07-01
 // @description  try to take over the world!
