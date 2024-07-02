@@ -6,12 +6,18 @@
 // @author       You
 // @match        https://boards.4chan.org/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=4chan.org
-// @grant        none
+// @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    GM_addStyle(`
+        #OneeChanLink {
+            font-size: 0;
+        }
+    `);
 
     //TODO: Currently, on larger pages, I think OneeChan appends its button before 4chanXInitFinished fires. 
     // Hence, the text "OneeChan" appears for a fraction of a second. 
