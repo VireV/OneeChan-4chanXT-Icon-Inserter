@@ -19,7 +19,7 @@
         }
     `);
 
-    //TODO: Currently, on larger pages, I think OneeChan appends its button before 4chanXInitFinished fires. 
+    // TODO: Currently, on larger pages, I think OneeChan appends its button before 4chanXInitFinished fires. 
     // Hence, the text "OneeChan" appears for a fraction of a second. 
     // I should probably replace the event listener with another mechanism that detects when #shortcuts is created
 
