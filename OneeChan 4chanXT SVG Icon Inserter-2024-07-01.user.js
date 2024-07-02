@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OneeChan-4chanXT-Icon-Inserter
 // @namespace    http://tampermonkey.net/
-// @version      2024-07-02+new+newer
+// @version      2024-07-03
 // @description  try to take over the world!
 // @author       You
 // @match        https://boards.4chan.org/*
