@@ -19,10 +19,16 @@
         }
     `);
 
+    // TODO: There might be a CSS solution that can do this without the javascript. It instead uses: 
+    //  #OneeChanLink::before {
+    //      content: url('data:image/svg+xml;utf8,<svg>...</svg>');
+    //  }
+    // Basically, putting the svg in a data URL - unfortunately, I've messed with it and I can't get this solution to work. Maybe for another attempt in the future :^).
+    
     // TODO: Currently, on larger pages, I think OneeChan appends its button before 4chanXInitFinished fires. 
     // Hence, the text "OneeChan" appears for a fraction of a second. 
     // I should probably replace the event listener with another mechanism that detects when #shortcuts is created
-
+    
     function replace_Oneechan_link_with_inline_svg_icon() 
     {
         const OneeChan_link = document.querySelector("#OneeChanLink");
